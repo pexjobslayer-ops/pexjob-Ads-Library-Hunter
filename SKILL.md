@@ -1,5 +1,5 @@
 ---
-name: pex-jobslayer-facebook-adslibrary-intelligence
+name: pex-job-adlib
 description: Pex JobSlayer evidence-first Facebook Ads Library strategy intelligence. Use when analyzing Meta Ad Library URLs, competitor ads, creative patterns, funnel hypotheses, positioning, or test recommendations; never treat Library observations as performance data.
 ---
 
