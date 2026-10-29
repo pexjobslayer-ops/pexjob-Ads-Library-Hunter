@@ -46,17 +46,16 @@ Do not silently broaden filters. If the user gives only a page URL, ask for the 
 
 ### 2. Product/service inventory mode (default when the user supplies a category or keywords)
 
-When the request names a product, product category, service, or service category and asks to analyze Ads Library, default to an **inventory-first** response. Identify all directly relevant distinct ads found in the accessible results, group them by advertiser page, deduplicate by Library ID, and report the number reviewed and retained. Do not impose an arbitrary 2-ad or 3–5-ad cap. “All” means all relevant distinct ads observed in accessible result cards for the stated scope, not all ads in Meta's database.
+When the request supplies product/service keywords or asks what ads/pages are currently promoting a category, this mode takes precedence over the generic decision-memo workflow. Return an inventory-first answer: all distinct directly relevant ads actually inspected, grouped by advertiser page, with no arbitrary sample cap. “All” means all relevant ads found in the accessible results for the stated scope—not all ads in Meta's database.
 
-- Search the user's exact terms and a small, useful set of close variants/synonyms in the same language; preserve the requested country and active-status scope unless the user authorizes a change. Correct an obviously mismatched ad category only with a clear note (e.g., political/issues → all ads for ordinary products/services).
-- Review result cards, not only keyword counts or advertiser suggestions. Continue through accessible result pages/cards when feasible. If the page is blocked, results are partial, or the browser cannot load further, say so and label the inventory partial; never imply exhaustive coverage.
-- Include an ad only when the advertised offer directly sells, rents, books, or promotes the requested product/service, or directly solicits leads for it. Exclude incidental mentions, venues that merely contain the product, general businesses, and unrelated offers. Include adjacent products only if the user asked for the broader category; otherwise separate them as related-but-not-direct or omit them.
-- For each relevant ad, capture page name (and page ID when visible), visible ad title or concise faithful hook/offer summary, one short useful point, and Library ID/direct link. Count unique pages separately from distinct ads and state both when possible. Keep product sales distinct from service offers.
-- Include an ad only when the advertised offer directly sells, rents, books, or promotes the requested product/service, or directly solicits leads for it. Exclude incidental mentions, venues that merely contain the product, general businesses, and unrelated offers. Include adjacent products only if the user asked for the broader category; otherwise omit them or label them related-but-not-direct.
-- Search exact terms and a small useful set of same-language variants/synonyms; preserve country and active-status scope unless authorized otherwise. Correct an obviously mismatched category only with a clear note. Review actual result cards, not only approximate search totals or suggested advertiser names.
-- Continue through accessible result pages/cards when feasible. If blocked, incomplete, or unable to load further, label coverage partial and state what was actually reviewed. Never fabricate names, ad titles, IDs, or links; do not use approximate result totals as the relevant-ad count.
-- Keep the inventory concise by shortening each ad description, not by omitting directly relevant ads. If the user explicitly requests only a shortlist or limit, follow it and state the selection rule.
-- If more ads exist than can be reviewed in the available result view, list only actually inspected relevant ads and report the limitation; do not claim full-market completeness. Ask for a narrower category or time range only when that materially enables a useful inventory.
+**Mandatory concise output contract:** (1) one short scope line; (2) a compact table with **Page name | Ad name or faithful copy hook | Useful point (few words) | Direct Library link**; (3) one brief coverage note with counts of cards inspected, relevant ads retained, unique pages, and whether coverage is partial. Do not add an executive essay, evidence-map table, evaluation section, study-priority ranking, recommendations, test cards, or open-gaps section unless the user explicitly asks for strategy, diagnosis, or a detailed report. Keep each row to one short sentence. If a platform ad title is not visibly provided, label the copy hook as a summary; never invent an official title.
+
+- Search exact user terms and a few relevant same-language synonyms/variants; keep country and active-status filters unchanged unless authorized. If the supplied category is visibly wrong for the request, correct it only with a short scope note (e.g., political/issues → all ads for ordinary products/services).
+- Search results are not inventory. Inspect actual ad cards. Scroll/load further results and check subsequent accessible pages until the results are exhausted or the browser provides no new distinct Library IDs after two consecutive load attempts. Deduplicate on Library ID and avoid counting repeated cards/creative variations as distinct ads.
+- Include only ads whose offer directly sells, rents, books, or promotes the requested product/service, or directly solicits leads for it. Exclude incidental mentions, venues that merely contain the product, general businesses, and unrelated offers. Include adjacent products only when the user requests the broader category; otherwise omit them.
+- Capture visible page name and page ID when available, ad's visible title or faithful hook, Library ID/direct link, and only one short useful takeaway. Count unique pages separately from ads when possible; keep product offers separate from service offers.
+- Do not treat approximate search totals as cards inspected or relevant-ad counts. If access is blocked, cards cannot load, or the inventory stops before all results, report exactly how many cards were inspected and mark coverage partial. Never claim completeness beyond the results actually reviewed; do not fabricate names, titles, IDs, or URLs.
+- If the user explicitly asks for a shortlist, limit, strategic interpretation, or detailed report, follow that request. Otherwise, brevity means shorter row text—not omitting directly relevant ads or adding unsolicited analysis.
 
 ### 3. Build an ad inventory
 For each distinct ad, create one record. Deduplicate by Library ID; do not treat placements or repeated cards as separate ads.
@@ -133,7 +132,7 @@ Each test must specify:
 - Read rule and next move
 
 ### 9. Produce the decision memo
-Use the structure in `templates/decision-memo.md`. Keep analysis and evaluation visibly separate:
+Use the concise inventory contract for product/service keyword discovery. Use the full structure in `templates/decision-memo.md` only for explicit strategic analysis, diagnosis, or detailed-report requests. When using the full structure, keep analysis and evaluation visibly separate:
 
 - **📊 Analysis:** directly observed or source-grounded
 - **⭐ Evaluation:** interpretation, implication, or recommendation
@@ -153,9 +152,9 @@ Before finalizing, verify:
 
 ## Response modes
 
-- **Summary:** for general strategy questions, give the decision, 3–5 evidence-backed findings, 1–3 actions, and gaps. For product/service keyword discovery, group all directly relevant distinct ads actually inspected by page, using concise ad hooks, direct links, page/ad counts, and an honest scope/coverage note. Never impose a sample cap unless the user asks for one.
+- **Product/service inventory (default for keyword/category searches):** obey the mandatory concise output contract above. The table is the main answer; do not append the general decision memo or unsolicited strategy.
+- **Summary (general strategy questions):** give the decision, 3–5 evidence-backed findings, 1–3 actions, and gaps.
 - **Detailed:** full inventory, coding table, evidence map, pattern analysis, priorities, test cards.
-- **Product/service inventory:** concise grouped table of every directly relevant distinct ad reviewed (page, ad title/hook, useful point, direct Library link), followed by counts/scope/coverage and only the most useful cross-ad signals. Keep analysis short unless the user asks for detail.
 - **Comparison:** normalize scope and dates first; compare message/creative/offer systems, not unverifiable performance.
 - **Monitoring:** compare snapshots by Library ID, start date, message, offer, format, and status; explicitly list additions, removals, and unchanged ads.
 
