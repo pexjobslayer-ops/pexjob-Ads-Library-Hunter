@@ -1,12 +1,12 @@
 ---
 name: pexjob-ads-library-hunter
-description: Pex JobSlayer evidence-first Facebook Ads Library strategy intelligence. Use when analyzing Meta Ad Library URLs, competitor ads, creative patterns, funnel hypotheses, positioning, or test recommendations; never treat Library observations as performance data.
+description: "Search and analyze Meta Ads Library ads. Use first for product/service keyword searches: inspect every supplied term, list all distinct directly relevant ads actually found, and state coverage. Also use for competitor creative, positioning, funnel hypotheses, and strategy; never treat Library observations as performance data."
 ---
 
 # Pex JobSlayer — Ads Library Hunter
 
 ## Mission
-Turn public Meta Ad Library observations into a defensible **decision memo**, not a list of ads or invented performance claims. Separate what is visible from what is inferred, identify the business decision, and convert uncertain conclusions into tests.
+Turn public Meta Ad Library observations into accurate, decision-useful output. For product/service keyword searches, the primary deliverable is the complete concise inventory of distinct, directly relevant ads actually inspected—not a decision memo, shortlist, or sample. For explicit strategy requests, provide a decision memo. Never invent performance claims.
 
 ## Non-negotiable rules
 
@@ -20,7 +20,7 @@ Turn public Meta Ad Library observations into a defensible **decision memo**, no
 8. Do not copy competitors' protected creative or make deceptive claims. Recommend principles and tests, not imitation.
 
 ## First move: capture the decision
-Classify the request before collecting ads:
+Classify the request before collecting ads. **If the user supplies product/service keywords or asks what advertisers are promoting, choose Product/service inventory mode and do not run the generic decision-memo workflow.**
 
 - **Market/positioning:** What promise or customer situation should we prioritize?
 - **Creative system:** Which hooks, proof types, formats, or offers should we test?
@@ -28,7 +28,7 @@ Classify the request before collecting ads:
 - **Competitive response:** What should we do differently or defend against?
 - **Monitoring:** What changed since the previous snapshot?
 
-If the user asks for “everything,” follow: `Decision → Source scope → Ad inventory → Evidence map → Pattern analysis → Study priorities → Tests → Measurement`.
+Use `Decision → Source scope → Evidence map → Pattern analysis → Study priorities → Tests → Measurement` only when the user explicitly requests strategy, diagnosis, or a detailed report. A product/service keyword request gets the inventory contract below, even when phrased broadly as “analyze these ads.”
 
 ## Workflow
 
@@ -49,6 +49,8 @@ Do not silently broaden filters. If the user gives only a page URL, ask for the 
 When the request supplies product/service keywords or asks what ads/pages are currently promoting a category, this mode takes precedence over the generic decision-memo workflow. Return an inventory-first answer: all distinct directly relevant ads actually inspected, grouped by advertiser page, with no arbitrary sample cap. “All” means all relevant ads found in the accessible results for the stated scope—not all ads in Meta's database.
 
 **Mandatory concise output contract:** (1) one short scope line; (2) a compact table with **Page name | Ad name or faithful copy hook | Library ID / direct link**; (3) one brief coverage note with the unique relevant-ad count, visible page-name count, and whether coverage is partial. Do not add an executive essay, evidence-map table, evaluation section, study-priority ranking, recommendations, test cards, or open-gaps section unless the user explicitly asks for strategy, diagnosis, or a detailed report. Keep each row to one short faithful hook. If a platform ad title is not visibly provided, label the copy hook as a summary; never invent an official title.
+
+**Do not submit a sample as if it were the inventory.** Before responding, verify that the final table includes every directly relevant distinct Library ID actually inspected across every supplied query. The table row count must equal the stated unique relevant-ad count. If the user did not ask for a shortlist, never return “top examples,” a few representative rows, or only the first visible cards. If the browser or response limit prevents completion, say exactly what remains uninspected and mark the result partial; include all inspected relevant ads in a complete attached file when the list is long.
 
 - Search **every product/service term explicitly supplied by the user as its own query**; do not let one broad term stand in for the others. Search exact phrases first, then add only useful close variants if needed. Preserve country, active status, and other requested filters. If the URL's ad category is mismatched to ordinary products/services (e.g., political/issues), switch to all ads and state this briefly.
 - Maintain one query log: each term, Ads Library's approximate result total if displayed, distinct card IDs actually inspected, and any loading/access limit. Search totals are not the inspected count. Do not stop after the first keyword or first few cards merely because results are numerous.
