@@ -3,10 +3,10 @@
 **Source:** [URL]
 **Access date:** [YYYY-MM-DD]
 **Scope:** [country, active status, ad category, platforms, date filters]
-**Queries:** [each user-supplied term and approximate Ads Library total, if shown]
-**Coverage:** [distinct cards inspected per query; complete or partial]
+**Queries:** [each user-supplied term separately; approximate result total if shown]
+**Coverage:** [per term: distinct cards/IDs inspected and complete, partial, or blocked; combined coverage]
 
-> **Mode rule:** For product/service keyword discovery, output only a one-line scope, the directly relevant ads table, and the inventory note below. Do not continue into the decision memo sections unless the user explicitly asks for strategy, diagnosis, or a detailed report.
+> **Mode rule:** For product/service keyword discovery, run every supplied term as a separate query. Output only the scope/query coverage, directly relevant ads table, and inventory note below. Do not continue into the decision memo sections unless the user explicitly asks for strategy, diagnosis, or a detailed report.
 
 ## Directly relevant ads
 For product/service discovery, group by page and list every distinct, directly relevant ad actually reviewed. Search every user-supplied term separately and deduplicate globally by Library ID. Keep entries concise; do not impose an arbitrary sample cap. Exclude incidental mentions and offers outside the requested category. If no official ad title is visible, use a faithful copy hook and label it as a summary rather than inventing a title. If the table exceeds 25 distinct ads, attach the full table as a Markdown/CSV file; never cut it to a sample.
