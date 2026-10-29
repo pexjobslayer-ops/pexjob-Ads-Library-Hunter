@@ -2,18 +2,19 @@
 
 **Source:** [URL]
 **Access date:** [YYYY-MM-DD]
-**Scope:** [country, active status, platforms, date filters]
-**Sample:** [n ads observed] / [complete or partial]
+**Scope:** [country, active status, ad category, platforms, date filters]
+**Queries:** [each user-supplied term and approximate Ads Library total, if shown]
+**Coverage:** [distinct cards inspected per query; complete or partial]
 
 > **Mode rule:** For product/service keyword discovery, output only a one-line scope, the directly relevant ads table, and the inventory note below. Do not continue into the decision memo sections unless the user explicitly asks for strategy, diagnosis, or a detailed report.
 
 ## Directly relevant ads
-For product/service discovery, group by page and list every distinct, directly relevant ad actually reviewed. Keep entries concise; do not impose an arbitrary sample cap. Exclude incidental mentions and offers outside the requested category. If no official ad title is visible, use a faithful copy hook and label it as a summary rather than inventing a title.
+For product/service discovery, group by page and list every distinct, directly relevant ad actually reviewed. Search every user-supplied term separately and deduplicate globally by Library ID. Keep entries concise; do not impose an arbitrary sample cap. Exclude incidental mentions and offers outside the requested category. If no official ad title is visible, use a faithful copy hook and label it as a summary rather than inventing a title. If the table exceeds 25 distinct ads, attach the full table as a Markdown/CSV file; never cut it to a sample.
 
-| Page / advertiser | Ad title or concise hook/offer | Useful point | Library ID / direct link |
+| Page / advertiser | Ad name or faithful copy hook (summary if not official) | Library ID / direct link |
 |---|---|---|---|
 
-**Inventory note:** [n cards inspected; n directly relevant ads across n pages; accessible results exhausted or partial; limitations]
+**Inventory note:** [n unique relevant ads; n distinct visible page names/page IDs; coverage partial/complete within accessible results; limitation]
 
 ## One-line call
 [The most important decision recommendation]
