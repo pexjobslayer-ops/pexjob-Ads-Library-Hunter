@@ -1,17 +1,17 @@
 ---
 name: pexjob-ads-library-hunter
-description: "Search and analyze Meta Ads Library ads. Use first for product/service keyword searches: inspect every supplied term, list all distinct directly relevant ads actually found, and state coverage. Also use for competitor creative, positioning, funnel hypotheses, and strategy; never treat Library observations as performance data."
+description: Pex JobSlayer evidence-first Facebook Ads Library strategy intelligence. Use when analyzing Meta Ad Library URLs, competitor ads, creative patterns, funnel hypotheses, positioning, or test recommendations; never treat Library observations as performance data.
 ---
 
 # Pex JobSlayer — Ads Library Hunter
 
 ## Mission
-Turn public Meta Ad Library observations into accurate, decision-useful output. For product/service keyword searches, the primary deliverable is the complete concise inventory of distinct, directly relevant ads actually inspected—not a decision memo, shortlist, or sample. For explicit strategy requests, provide a decision memo. Never invent performance claims.
+Turn public Meta Ad Library observations into a defensible **decision memo**, not a list of ads or invented performance claims. Separate what is visible from what is inferred, identify the business decision, and convert uncertain conclusions into tests.
 
 ## Non-negotiable rules
 
 1. **Public Library data is not account data.** Do not claim spend, impressions, reach, CTR, CPC, CPA, ROAS, conversion rate, audience targeting, or winner status unless the source explicitly provides it.
-2. In strategy/diagnosis mode, label material statements as **FACT**, **SIGNAL**, **BET**, or **GAP**. Do not add these labels to a simple inventory table unless requested.
+2. Label every material statement as **FACT**, **SIGNAL**, **BET**, or **GAP**.
 3. Ads Library presence means an ad was/ is discoverable; it does not prove effectiveness, profitability, or intentional funnel stage.
 4. Do not infer personal attributes, sensitive targeting, or exact buying strategy from copy alone.
 5. Never score an ad as “high-performing” from longevity, visibility, reactions, or creative quality. Use **study priority** instead.
@@ -20,7 +20,7 @@ Turn public Meta Ad Library observations into accurate, decision-useful output. 
 8. Do not copy competitors' protected creative or make deceptive claims. Recommend principles and tests, not imitation.
 
 ## First move: capture the decision
-Classify the request before collecting ads. **If the user supplies product/service keywords or asks what advertisers are promoting, choose Product/service inventory mode and do not run the generic decision-memo workflow.**
+Classify the request before collecting ads:
 
 - **Market/positioning:** What promise or customer situation should we prioritize?
 - **Creative system:** Which hooks, proof types, formats, or offers should we test?
@@ -28,7 +28,7 @@ Classify the request before collecting ads. **If the user supplies product/servi
 - **Competitive response:** What should we do differently or defend against?
 - **Monitoring:** What changed since the previous snapshot?
 
-Use `Decision → Source scope → Evidence map → Pattern analysis → Study priorities → Tests → Measurement` only when the user explicitly requests strategy, diagnosis, or a detailed report. A product/service keyword request gets the inventory contract below, even when phrased broadly as “analyze these ads.”
+If the user asks for “everything,” follow: `Decision → Source scope → Ad inventory → Evidence map → Pattern analysis → Study priorities → Tests → Measurement`.
 
 ## Workflow
 
@@ -46,27 +46,17 @@ Do not silently broaden filters. If the user gives only a page URL, ask for the 
 
 ### 2. Product/service inventory mode (default when the user supplies a category or keywords)
 
-When the request supplies product/service keywords or asks what ads/pages are currently promoting a category, this mode takes precedence over the generic decision-memo workflow. Return an inventory-first answer: all distinct directly relevant ads actually inspected, grouped by advertiser page, with no arbitrary sample cap. “All” means all relevant ads found in the accessible results for the stated scope—not all ads in Meta's database.
+When the request names a broad product/service category or keywords and the user's main goal is market/competitor discovery, default to **page-first market inventory**, not a long ad-by-ad dump. Identify distinct advertiser pages with directly relevant offers, deduplicate pages by page ID when available (otherwise normalize visible page names and flag ambiguity), and report the number of unique relevant pages observed. Show at most two representative ads per page, deduplicated by Library ID, with direct links and concise hooks. “Observed pages” means pages found in accessible result cards, not all competitors in the market.
 
-**Mandatory concise output contract:** (1) one short scope line; (2) a compact table with **Page name | Ad name or faithful copy hook | Library ID / direct link**; (3) one brief coverage note with the unique relevant-ad count, visible page-name count, and whether coverage is partial. State how many user terms were searched, and list each term's approximate result total and inspected-card count when available. Do not add an executive essay, evidence-map table, evaluation section, study-priority ranking, recommendations, test cards, or open-gaps section unless the user explicitly asks for strategy, diagnosis, or a detailed report. Keep each row to one short faithful hook. If a platform ad title is not visibly provided, label the copy hook as a summary; never invent an official title.
+When the user explicitly asks for a complete ad inventory, or has selected a page for deep dive, identify all distinct relevant ads visible for that scope and report the count reviewed. Never impose a two-ad cap in a requested single-page deep dive; the two-ad limit applies to broad market-discovery summaries only.
 
-**Do not submit a sample as if it were the inventory.** Before responding, verify that the final table includes every directly relevant distinct Library ID actually inspected across every supplied query. The table row count must equal the stated unique relevant-ad count. If the user did not ask for a shortlist, never return “top examples,” a few representative rows, or only the first visible cards. If the browser or response limit prevents completion, say exactly what remains uninspected and mark the result partial; include all inspected relevant ads in a complete attached file when the list is long.
-
-**Mandatory execution gate — complete this before drafting the answer:**
-1. Parse and record the user's keywords as a numbered list. Treat each space-separated product phrase as its own search when multiple phrases are supplied; never replace the list with one broad word. For example, `ตู้อบซาวน่า เครื่องอบซาวน่า ห้องซาวน่า ซาวน่าสำเร็จรูป ซาวน่าอินฟราเรด` means five queries.
-2. Run each exact phrase separately. Do not mark a query complete until Ads Library's search field or URL visibly contains that phrase and the result cards have been reviewed. Maintain a completed/skipped status for every phrase.
-3. For each query, note the approximate result total if shown, inspect the loaded cards, and scroll **the result list** (not just the page footer) to load more. Repeat while new Library IDs appear; stop only at the end or after two consecutive load attempts add no new IDs. If the browser cannot scroll/load, state the specific limitation and leave that query partial/blocked.
-4. Merge all inspected cards, deduplicate by Library ID, and classify direct relevance. Before answering, verify all supplied terms have a completed or explicitly blocked status and that table rows equal the unique relevant-ID count. Never silently omit a term, card, or excess rows.
-
-- Search **every product/service term explicitly supplied by the user as its own query**; do not let one broad term stand in for the others. Search exact phrases first, then add only useful close variants if needed. Preserve country, active status, and other requested filters. If the URL's ad category is mismatched to ordinary products/services (e.g., political/issues), switch to all ads and state this briefly.
-- Maintain one query log: each term, Ads Library's approximate result total if displayed, distinct card IDs actually inspected, and any loading/access limit. Search totals are not the inspected count. Do not stop after the first keyword or first few cards merely because results are numerous.
-- For each query, inspect actual ad cards, scroll/load further results, and continue until results are exhausted or two consecutive load attempts yield no new distinct Library IDs. Combine the query results, deduplicate globally by Library ID, and do not count repeated placements or the same ad returned under multiple keywords twice.
-- Include only ads whose offer directly sells, rents, designs, installs, repairs, or promotes the requested product/service, or directly solicits leads for it. Exclude incidental mentions, venues that merely contain the product, general businesses, and unrelated offers. Include adjacent formats only when they fit an explicitly supplied umbrella term; label the product type so a sauna blanket is not mistaken for a sauna cabin/room.
-- Capture visible page name (and page ID when shown), visible ad title or faithful short copy hook, Library ID, and direct link. Do not invent official ad titles. Count unique page IDs where visible; otherwise report the number of distinct visible page-name labels, not a guaranteed number of unique businesses.
-- For the default inventory mode, these are the only required row fields. Use the larger record schema and creative coding below only when the user asks for strategy, comparison, or a detailed report.
-- Never infer completeness from approximate result totals. If any query's cards cannot be exhausted, report the exact per-query inspection coverage and mark the combined inventory partial. Never fabricate names, titles, IDs, or URLs.
-- Do not impose an arbitrary ad-count cap. If the complete relevant inventory is too long for a readable chat response (e.g., more than 25 distinct ads), save the **entire** concise table as a Markdown or CSV attachment and give only the scope, unique counts, coverage caveat, and file link in chat; never replace it with a shortlist. For smaller inventories, show the full table directly.
-- If the user explicitly asks for a shortlist, limit, strategic interpretation, or detailed report, follow that request. Otherwise, shorten each row rather than omitting directly relevant ads or adding unsolicited analysis.
+- Search the user's exact terms and a small, useful set of close variants/synonyms in the same language; preserve the requested country and active-status scope unless the user authorizes a change. Correct an obviously mismatched ad category only with a clear note (e.g., political/issues → all ads for ordinary products/services).
+- Review result cards, not only keyword counts or advertiser suggestions. Continue through accessible result pages/cards when feasible. If the page is blocked, results are partial, or the browser cannot load further, say so and label the inventory partial; never imply exhaustive coverage.
+- Include an ad only when the advertised offer directly sells, rents, books, or promotes the requested product/service, or directly solicits leads for it. Exclude incidental mentions, venues that merely contain the product, general businesses, and unrelated offers. Include adjacent products only if the user asked for the broader category; otherwise separate them as related-but-not-direct or omit them.
+- In market-discovery mode, group results by advertiser page and show no more than two representative ads per page; capture page name, page ID when visible, each ad's faithful hook/offer summary, Library ID/direct link, and one short useful observation. Count pages separately from ads and state both counts when possible. Keep product sales distinct from service offers.
+- After a broad market-discovery summary, offer clear next-step choices: **เจาะลึกเพจ** (ask the user to type/select a page name; then count its currently visible active ads and analyze offers, formats, proof, CTA, and useful strategic signals) and **วิเคราะห์คอนเทนต์** (analyze messaging themes, hooks, proof, objections, formats, and testable content ideas for the market or selected page). Present these as selectable choices where the interface supports it; otherwise use a numbered choice prompt. Do not claim a button exists if it cannot actually be rendered.
+- If more ads are found than can be reviewed in the available result view, list only the actually inspected relevant ads and state the limitation; do not fabricate missing names, ad titles, IDs, or links. Do not use approximate result totals as the number of relevant ads.
+- In broad category discovery, the user's default is page count first and at most two sample ads per page. If the number of pages cannot reasonably be reviewed in the accessible result view, report the inspected page count and limits rather than asking for an arbitrary ad limit. In full-inventory or page-deep-dive mode, follow the user's requested scope and report partial coverage honestly.
 
 ### 3. Build an ad inventory
 For each distinct ad, create one record. Deduplicate by Library ID; do not treat placements or repeated cards as separate ads.
@@ -109,7 +99,7 @@ Use this table before giving recommendations:
 Confidence is qualitative: high, medium, low. Do not convert confidence into a fake probability.
 
 ### 6. Analyze patterns
-Use this section only for explicit strategy, diagnosis, comparison, or detailed-report requests; skip it for keyword inventory. When applicable, analyze at the level supported by the sample:
+Analyze at the level supported by the sample:
 
 - **Message system:** recurring situations, promises, objections, proof, offers, CTAs
 - **Creative system:** format and angle variation; signs of iteration, not performance
@@ -121,7 +111,7 @@ Use this section only for explicit strategy, diagnosis, comparison, or detailed-
 If percentages are used, show the denominator and say `ในตัวอย่างที่เก็บได้`; never generalize to the whole advertiser when the inventory is partial.
 
 ### 7. Rank study priorities, not winners
-Use **Study Priority** with three qualitative dimensions only in explicit strategy/detailed-report mode:
+Use **Study Priority** with three qualitative dimensions:
 
 - **Learning value:** how clearly the ad reveals a reusable strategic principle
 - **Business relevance:** how closely it relates to the user's offer and decision
@@ -130,7 +120,7 @@ Use **Study Priority** with three qualitative dimensions only in explicit strate
 Rank as High/Medium/Low and explain why. A long-running ad can be a useful signal of persistence, but not proof of success. Do not use a numeric 7/10 threshold unless the user supplies valid performance data.
 
 ### 8. Convert insights into test cards
-Offer 1–3 high-leverage experiments only when requested or when the user explicitly asks for strategy. Change one major variable at a time when causal learning matters.
+Offer 1–3 high-leverage experiments. Change one major variable at a time when causal learning matters.
 
 Each test must specify:
 
@@ -143,7 +133,7 @@ Each test must specify:
 - Read rule and next move
 
 ### 9. Produce the decision memo
-For product/service keyword discovery, search every supplied term separately, merge results by Library ID, and use the concise inventory contract. If over 25 distinct ads are found, save and attach the complete short table rather than truncating it. Use the full structure in `templates/decision-memo.md` only for explicit strategic analysis, diagnosis, or detailed-report requests. When using the full structure, keep analysis and evaluation visibly separate:
+Use the structure in `templates/decision-memo.md`. Keep analysis and evaluation visibly separate:
 
 - **📊 Analysis:** directly observed or source-grounded
 - **⭐ Evaluation:** interpretation, implication, or recommendation
@@ -151,9 +141,9 @@ For product/service keyword discovery, search every supplied term separately, me
 ## Quality gates
 Before finalizing, verify:
 
-- In inventory mode, every supplied query has a status, each inspected direct ad is listed once, and row count equals unique relevant Library IDs.
-- In strategy mode, the decision is explicit and source scope/sample limits are stated.
-- In strategy mode, material conclusions have FACT/SIGNAL/BET/GAP status.
+- The decision is explicit.
+- Source scope and sample limits are stated.
+- Every major conclusion has FACT/SIGNAL/BET/GAP status.
 - No hidden performance, spend, targeting, or ROI claims were invented.
 - Direct links exist for every cited ad.
 - Missing fields are marked unknown, not zero.
@@ -163,9 +153,9 @@ Before finalizing, verify:
 
 ## Response modes
 
-- **Product/service inventory (default for keyword/category searches):** obey the mandatory concise output contract above. The table is the main answer; do not append the general decision memo or unsolicited strategy.
-- **Summary (general strategy questions):** give the decision, 3–5 evidence-backed findings, 1–3 actions, and gaps.
+- **Summary:** for general strategy questions, give the decision, 3–5 evidence-backed findings, 1–3 actions, and gaps. For broad product/service category discovery, use page-first market inventory: unique relevant page count, up to two representative ads per page, scope/limits, and the two next-step choices (page deep dive or content analysis). For explicit complete-inventory requests, list all relevant distinct ads actually inspected.
 - **Detailed:** full inventory, coding table, evidence map, pattern analysis, priorities, test cards.
+- **Product/service inventory:** concise table of every directly relevant distinct ad reviewed (page, ad title/hook, useful point, direct Library link), followed by a brief count/scope note and only the most useful cross-ad signals. Keep analysis short unless the user asks for detail.
 - **Comparison:** normalize scope and dates first; compare message/creative/offer systems, not unverifiable performance.
 - **Monitoring:** compare snapshots by Library ID, start date, message, offer, format, and status; explicitly list additions, removals, and unchanged ads.
 
