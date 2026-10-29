@@ -5,6 +5,14 @@
 **Scope:** [country, active status, platforms, date filters]
 **Sample:** [n ads observed] / [complete or partial]
 
+## Directly relevant ads
+For product/service discovery, group by page and list every distinct, directly relevant ad actually reviewed. Keep entries concise; do not impose an arbitrary sample cap. Exclude incidental mentions and offers outside the requested category.
+
+| Page / advertiser | Ad title or concise hook/offer | Useful point | Library ID / direct link |
+|---|---|---|---|
+
+**Inventory note:** [n relevant ads across n pages; reviewed/retained counts; complete or partial accessible results and limitations]
+
 ## One-line call
 [The most important decision recommendation]
 
